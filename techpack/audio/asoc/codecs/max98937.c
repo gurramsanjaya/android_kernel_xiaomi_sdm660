@@ -569,7 +569,7 @@ struct param_info {
 	int q_val;
 };
 
-
+#endif
 
 
 
@@ -593,7 +593,6 @@ struct param_info {
 #define EAR_RDC_MAX  (1370391217) //34 / 3.33 * (1<<27)
 #define EAR_RDC_DEFAULT (1168863097)  // 29 / 3.33 * 134217728
 */
-#endif
 
 static struct {
 	bool l_calib_stat;
@@ -812,7 +811,6 @@ static int max989xx_calib_save (uint32_t calib_value, int ch)
 }
 #endif
 
-#ifdef CONFIG_DEBUG_FS
 static inline bool rdc_check_valid(uint32_t rdc, int ch)
 {
 	int rdc_min, rdc_max;
@@ -835,6 +833,7 @@ static inline bool rdc_check_valid(uint32_t rdc, int ch)
 	return false;
 }
 
+#ifdef CONFIG_DEBUG_FS
 static ssize_t max989xx_dbgfs_calibrate_read(struct file *file,
 					     char __user *user_buf, size_t count,
 					     loff_t *ppos)
